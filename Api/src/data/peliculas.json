@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "titulo": "Alien: El Octavo Pasajero",
+      "descripcion": "Una tripulación espacial es perseguida por una criatura alienígena.",
+      "duracion": 117,
+      "genero": "Ciencia ficción",
+      "anio": 1979,
+      "rating": 8.5,
+      "imagen": "/images/alien.jpg",
+      "cineIds": [1, 2]
+    },
+    {
+      "id": 2,
+      "titulo": "El bueno, el feo y el malo",
+      "descripcion": "Tres pistoleros buscan un tesoro enterrado.",
+      "duracion": 178,
+      "genero": "Western",
+      "anio": 1966,
+      "rating": 8.8,
+      "imagen": "/images/bueno-feo-malo.jpg",
+      "cineIds": [2]
+    }
+  ]
+  
