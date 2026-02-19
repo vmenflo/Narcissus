@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "tsx": "^4.21.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.13.0"
   }
 }
