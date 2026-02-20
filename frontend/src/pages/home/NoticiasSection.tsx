@@ -7,7 +7,7 @@ export default function NoticiasSection(){
             <hr />
             <Link to={`/noticias`}>
                 <div >
-                    <img style={{height: 200, width:400}} src="https://flixole.com/wp-content/uploads/2025/03/Hollywood-portada.jpg" alt="portada-noticias" />
+                    <img className="noticias-img"  src="https://flixole.com/wp-content/uploads/2025/03/Hollywood-portada.jpg" alt="portada-noticias" />
                 </div>
             </Link>
         </div>

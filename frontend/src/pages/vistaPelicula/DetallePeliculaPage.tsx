@@ -1,6 +1,7 @@
 import { getPeliculaById } from "../../services/peliculas.service";
 import type { Pelicula } from "../../types/pelicula";
 import { Link, useLoaderData } from "react-router-dom";
+import DetallePelicula from "../../components/PeliculaCard/DetallePelicula"
 
 export async function loader({ params }: { params: any }) {
   const id = params.id;
@@ -22,15 +23,12 @@ export default function DetallePeliculaPage() {
   const pelicula = useLoaderData() as Pelicula;
 
   return (
-    <div>
-      <h1>{pelicula.titulo}</h1>
-      <p>FOTO</p>
-      <p>{pelicula.genero}</p>
-      <p>{pelicula.descripcion}</p>
+   <div>
+      <DetallePelicula pelicula={pelicula} />
 
-      <Link to="/" style={{ display: "inline-block", marginBottom: 12 }}>
-        ← Volver a cartelera
-      </Link>
-    </div>
+       <Link className="retroceder" to="/">
+            <p>Volver atrás</p>
+        </Link>
+   </div>
   );
 }

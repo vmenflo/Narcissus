@@ -1,25 +1,75 @@
 [
-    {
-      "id": 1,
-      "titulo": "Alien: El Octavo Pasajero",
-      "descripcion": "Una tripulación espacial es perseguida por una criatura alienígena.",
-      "duracion": 117,
-      "genero": "Ciencia ficción",
-      "anio": 1979,
-      "rating": 8.5,
-      "imagen": "/images/alien.jpg",
-      "cineIds": [1, 2]
-    },
-    {
-      "id": 2,
-      "titulo": "El bueno, el feo y el malo",
-      "descripcion": "Tres pistoleros buscan un tesoro enterrado.",
-      "duracion": 178,
-      "genero": "Western",
-      "anio": 1966,
-      "rating": 8.8,
-      "imagen": "/images/bueno-feo-malo.jpg",
-      "cineIds": [2]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "titulo": "Alien: El Octavo Pasajero",
+    "descripcion": "La nave comercial Nostromo regresa a la Tierra cuando recibe una misteriosa señal de auxilio desde un planeta desconocido. Lo que comienza como una misión rutinaria de exploración se convierte en una pesadilla cuando la tripulación descubre una forma de vida alienígena letal que se infiltra en la nave. Aislados en el espacio profundo, deberán enfrentarse al terror, la paranoia y a una criatura perfecta diseñada para matar.",
+    "duracion": 117,
+    "genero": "Ciencia ficción",
+    "anio": 1979,
+    "rating": 8.5,
+    "sala": 1,
+    "hora":"22:30H",
+    "imagenUrl": "https://macguffin007.com/wp-content/uploads/2017/05/Alien-octavo-pasajero.jpg",
+    "trailerUrl": "https://youtu.be/Eu9ZFTXXEiw?si=cRgBLFGNVcI3oDYJ"
+  },
+  {
+    "id": 2,
+    "titulo": "El bueno, el feo y el malo",
+    "descripcion": "En plena Guerra de Secesión estadounidense, tres forajidos —cada uno con su propio código moral— compiten por encontrar un tesoro oculto en un cementerio remoto. Traiciones, alianzas temporales y duelos inolvidables marcan esta épica historia del western italiano que redefinió el género con su estilo visual y su icónica banda sonora.",
+    "duracion": 178,
+    "genero": "Western",
+    "anio": 1966,
+    "rating": 8.8,
+    "sala": 2,
+    "hora":"22:30H",
+    "imagenUrl": "https://img2.rtve.es/n/2408147"
+  },
+  {
+    "id": 3,
+    "titulo": "Her",
+    "descripcion": "En un futuro cercano, Theodore, un hombre solitario y sensible, desarrolla una relación emocional profunda con un sistema operativo avanzado diseñado para adaptarse y evolucionar. Lo que comienza como una curiosidad tecnológica se transforma en un vínculo íntimo que explora el amor, la soledad y la naturaleza de las conexiones humanas en una era dominada por la inteligencia artificial.",
+    "duracion": 126,
+    "genero": "Drama / Ciencia ficción",
+    "anio": 2013,
+    "rating": 8.0,
+    "sala": 1,
+    "hora":"19:30H",
+    "imagenUrl": "https://combogamer.com/wp-content/uploads/2024/09/her.jpeg.webp"
+  },
+  {
+    "id": 4,
+    "titulo": "Fire of Love",
+    "descripcion": "Documental que narra la apasionante y trágica historia de los vulcanólogos Katia y Maurice Krafft, una pareja unida tanto por el amor como por su obsesión por estudiar volcanes activos. A través de imágenes espectaculares y material de archivo inédito, la película retrata su vida dedicada a perseguir el fuego de la Tierra hasta sus últimas consecuencias.",
+    "duracion": 93,
+    "genero": "Documental",
+    "anio": 2022,
+    "rating": 7.6,
+    "sala": 2,
+    "hora":"19:30H",
+    "imagenUrl": "https://www.cineciutat.org/storage/app/uploads/public/62e/58f/a24/62e58fa249ffd640033588.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Mad Max: Fury Road",
+    "descripcion": "En un mundo postapocalíptico devastado por la escasez de recursos, Max Rockatansky se une a la imperiosa Furiosa para escapar de un tirano que gobierna con puño de hierro. Perseguidos por un ejército de fanáticos a través del desierto, se desencadena una frenética carrera por la supervivencia cargada de acción visceral y espectaculares persecuciones.",
+    "duracion": 120,
+    "genero": "Acción / Ciencia ficción",
+    "anio": 2015,
+    "rating": 8.1,
+    "sala": 3,
+    "hora":"19:30H",
+    "imagenUrl": "https://okdiario.com/img/2021/08/17/mad-max-fury-road-warner-bros-pictures-655x368.jpg"
+  },
+  {
+    "id": 6,
+    "titulo": "28 Años Después",
+    "descripcion": "Décadas después de que un virus devastador arrasara el Reino Unido, los supervivientes intentan reconstruir la civilización en un entorno todavía marcado por el miedo y la violencia. Cuando nuevas señales de actividad comienzan a surgir en zonas aparentemente seguras, el frágil equilibrio alcanzado se tambalea y resurgen antiguos horrores.",
+    "duracion": 115,
+    "genero": "Terror / Ciencia ficción",
+    "anio": 2025,
+    "rating": 7.9,
+    "sala": 3,
+    "hora":"22:30H",
+    "imagenUrl": "https://media.vandalsports.com/i/640x360/12-2025/2025121185449_1.jpg"
+  }
+]
