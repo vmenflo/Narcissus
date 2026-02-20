@@ -1,39 +1,28 @@
 import { getPeliculaById } from "../../services/peliculas.service";
 import type { Pelicula } from "../../types/pelicula";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
+export async function loader({ params }: { params: any }) {
+  const id = params.id;
+
+  if (!id) {
+    throw new Response("Falta el id", { status: 400 });
+  }
+
+  try {
+    const pelicula = getPeliculaById(id);
+    return pelicula;
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : "Error cargando la película";
+    throw new Response(msg, { status: 500 });
+  }
+}
 
 export default function DetallePeliculaPage() {
-  
-  const [pelicula, setPelicula] = useState<Pelicula | null>(null);  
-  const { id } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    if (!id) return;
-    setLoading(true);
-    setError(null);
-
-
-    getPeliculaById(id)
-      .then(setPelicula)
-      .catch((e: unknown) => {
-        const msg = e instanceof Error ? e.message : "Error cargando la película";
-        setError(msg);
-        setPelicula(null);
-      })
-      .finally(()=> setLoading(false));
-  }, [id]);
-
-  if (loading) return <p>Cargando ...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!pelicula) return <p>No se encontró la película.</p>
+  const pelicula = useLoaderData() as Pelicula;
 
   return (
     <div>
-
       <h1>{pelicula.titulo}</h1>
       <p>FOTO</p>
       <p>{pelicula.genero}</p>
@@ -42,7 +31,6 @@ export default function DetallePeliculaPage() {
       <Link to="/" style={{ display: "inline-block", marginBottom: 12 }}>
         ← Volver a cartelera
       </Link>
-  
     </div>
   );
 }

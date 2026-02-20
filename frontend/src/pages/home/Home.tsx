@@ -1,17 +1,23 @@
+import { useLoaderData } from "react-router-dom";
+import { getPeliculas } from "../../services/peliculas.service";
+import type { Pelicula } from "../../types/pelicula";
 import CarteleraSection from "./CarteleraSection";
 
+export async function loader() {
+  return getPeliculas();
+}
+
 export default function Home() {
-    return(
-        <div>
-            <h1>Bienvenido a Narcissus</h1>
-      
-            <CarteleraSection />
+  const peliculas = useLoaderData() as Pelicula[];
 
-            <h3>Noticias</h3>
-            <hr></hr>
+  return (
+    <div>
+      <h1>Bienvenido a Narcissus</h1>
 
-        </div>
+      <CarteleraSection peliculas={peliculas} />
 
-    );
-
-  }
+      <h3>Noticias</h3>
+      <hr />
+    </div>
+  );
+}

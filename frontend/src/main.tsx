@@ -6,6 +6,6 @@ import "./styles/globals.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} fallbackElement={<p>Cargando...</p>} />
   </React.StrictMode>
 );
