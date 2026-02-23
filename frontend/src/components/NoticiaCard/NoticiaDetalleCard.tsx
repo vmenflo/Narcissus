@@ -7,11 +7,12 @@ type Props = {
 
 export default function detalleNoticia({noticia}: Props){
     return(
-        <div>
-            <p>{noticia.titulo}</p>
+        <div className="contenedor-detalles-noticias">
+            <h3>{noticia.titulo}</h3>
+            <img className="noticias-img" src={noticia.imagenUrl} alt={noticia.titulo} />
             <p>{noticia.articulo}</p>
             <p>Realizado por {noticia.autor}</p>
-            <Link to="/noticias">
+            <Link className="retroceder" to="/noticias">
                 Volver a noticias
             </Link>
         </div>

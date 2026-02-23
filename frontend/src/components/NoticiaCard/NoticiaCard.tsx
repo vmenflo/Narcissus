@@ -5,20 +5,19 @@ type Props = {
   noticias: Noticia[];
 };
 
-export default function vistaNoticias({ noticias }: Props) {
+export default function VistaNoticias({ noticias }: Props) {
   return (
-    <div>
-
-
-      <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
-        {noticias.map((n) => (
-            <Link to = {`/noticias/${n.id}`}>
-                <p>{n.titulo}</p>
-                <img style={{width:300, height:150}} src={n.imagenUrl} alt="" />
-            </Link>
-   
-        ))}
-      </div>
+    <div className="contenedor-noticias">
+      {noticias.map((n) => (
+        <Link
+          key={n.id}
+          className="contenedor-noticias-card"
+          to={`/noticias/${n.id}`}
+        >
+          <p>{n.titulo}</p>
+          <img className="noticias-img" src={n.imagenUrl} alt={n.titulo} />
+        </Link>
+      ))}
     </div>
   );
 }
