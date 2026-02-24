@@ -1,9 +1,14 @@
-import peliculas from "../data/peliculas.json" assert { type: "json" };
+import { prisma } from "../db/prisma.js";
 
-export function findAll() {
-  return peliculas;
+export async function findAll(search?: string) {
+  return prisma.pelicula.findMany({
+    where: search
+      ? { titulo: { contains: search, mode: "insensitive" } }
+      : undefined,
+    orderBy: { id: "asc" },
+  });
 }
 
-export function findById(id: number) {
-  return peliculas.find((p) => p.id === id) ?? null;
+export async function findById(id: number) {
+  return prisma.pelicula.findUnique({ where: { id } });
 }

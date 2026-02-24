@@ -1,0 +1,29 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Pelicula {
+  id          Int     @id
+  titulo      String
+  descripcion String
+  duracion    Int
+  genero      String
+  anio        Int
+  rating      Float
+  sala        Int
+  hora        String
+  imagenUrl   String
+  trailerUrl  String?
+}
+
+model Noticia {
+  id        Int    @id
+  titulo    String
+  articulo  String
+  autor     String
+  imagenUrl String
+}

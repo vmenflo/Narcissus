@@ -1,15 +1,15 @@
 import type { Request, Response } from "express";
 import * as service from "../services/noticias.service.js";
 
-export function getAll(req: Request, res: Response) {
+export async function getAll(req: Request, res: Response) {
   const searchRaw = req.query.search;
   const search = typeof searchRaw === "string" ? searchRaw : undefined;
 
-  const noticias = service.getNoticias(search);
+  const noticias = await service.getNoticias(search);
   return res.json(noticias);
 }
 
-export function getById(req: Request, res: Response) {
+export async function getById(req: Request, res: Response) {
   const id = Number(req.params.id);
 
   if (Number.isNaN(id)) {
@@ -19,7 +19,7 @@ export function getById(req: Request, res: Response) {
     });
   }
 
-  const noticia = service.getNoticiaById(id);
+  const noticia = await service.getNoticiaById(id);
 
   if (!noticia) {
     return res.status(404).json({

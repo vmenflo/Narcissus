@@ -1,9 +1,14 @@
-import noticias from "../data/noticias.json" assert { type: "json" };
+import { prisma } from "../db/prisma.js";
 
-export function findAll() {
-  return noticias;
+export async function findAll(search?: string) {
+  return prisma.noticia.findMany({
+    where: search
+      ? { titulo: { contains: search, mode: "insensitive" } }
+      : undefined,
+    orderBy: { id: "asc" },
+  });
 }
 
-export function findById(id: number) {
-  return noticias.find((p) => p.id === id) ?? null;
+export async function findById(id: number) {
+  return prisma.noticia.findUnique({ where: { id } });
 }

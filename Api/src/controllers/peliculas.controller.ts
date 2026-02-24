@@ -1,15 +1,15 @@
 import type { Request, Response } from "express";
-import * as service from "../services/peliculas.service.ts";
+import * as service from "../services/peliculas.service.js";
 
-export function getAll(req: Request, res: Response) {
+export async function getAll(req: Request, res: Response) {
   const searchRaw = req.query.search;
   const search = typeof searchRaw === "string" ? searchRaw : undefined;
 
-  const peliculas = service.getPeliculas(search);
+  const peliculas = await service.getPeliculas(search);
   return res.json(peliculas);
 }
 
-export function getById(req: Request, res: Response) {
+export async function getById(req: Request, res: Response) {
   const id = Number(req.params.id);
 
   if (Number.isNaN(id)) {
@@ -19,7 +19,7 @@ export function getById(req: Request, res: Response) {
     });
   }
 
-  const pelicula = service.getPeliculaById(id);
+  const pelicula = await service.getPeliculaById(id);
 
   if (!pelicula) {
     return res.status(404).json({

@@ -1,8 +1,19 @@
 {
-  "devDependencies": {
-    "tsx": "^4.21.0"
+  "name": "narcissus-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "@prisma/adapter-better-sqlite3": "^7.4.1",
+    "@prisma/client": "^7.4.1",
+    "better-sqlite3": "^9.4.0"
+  },
+  "devDependencies": {
+    "prisma": "^7.4.1",
+    "tsx": "^4.21.0"
   }
 }
