@@ -1,6 +1,8 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 
+import authRoutes from "./routes/auth.route.js";
 import healthRoutes from "./routes/health.route.js";
 import peliculasRoutes from "./routes/peliculas.route.js";
 import noticiasRoutes from "./routes/noticias.route.js";
@@ -9,19 +11,15 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 
 const app = express();
 
-// Middlewares base
 app.use(cors());
 app.use(express.json());
 
-// Rutas
 app.use("/api", healthRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/peliculas", peliculasRoutes);
 app.use("/api/noticias", noticiasRoutes);
 
-// 404 (si no coincide nada)
 app.use(notFound);
-
-// Errores (si algo explota)
 app.use(errorHandler);
 
 export default app;
