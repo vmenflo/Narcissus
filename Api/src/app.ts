@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 
 import healthRoutes from "./routes/health.route.js";
-import cinesRoutes from "./routes/cines.route.js";
 import peliculasRoutes from "./routes/peliculas.route.js";
 import noticiasRoutes from "./routes/noticias.route.js";
 import { notFound } from "./middlewares/notFound.js";
@@ -16,7 +15,6 @@ app.use(express.json());
 
 // Rutas
 app.use("/api", healthRoutes);
-app.use("/api/cines", cinesRoutes);
 app.use("/api/peliculas", peliculasRoutes);
 app.use("/api/noticias", noticiasRoutes);
 
