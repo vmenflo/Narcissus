@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "titulo": "El cine independiente vive su mejor año en taquilla",
+      "articulo": "Las salas independientes han experimentado un crecimiento notable en asistencia gracias a una programación diversa y eventos especiales con directores invitados.",
+      "autor": "Laura Martínez",
+      "imagenUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
+    },
+    {
+      "id": 2,
+      "titulo": "Nueva ola de ciencia ficción europea",
+      "articulo": "Directores emergentes están redefiniendo el género con propuestas visuales innovadoras y narrativas centradas en conflictos sociales contemporáneos.",
+      "autor": "Carlos Romero",
+      "imagenUrl": "https://yucatancultura.com/wp-content/uploads/2019/08/list_640px.jpg"
+    }
+  ]
