@@ -1,10 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
+import type { Role } from "@prisma/client";
 import { AppError } from "../utils/AppError.js";
 import { verifyToken } from "../utils/jwt.js";
 
 export type AuthUser = {
   sub: string;
-  role: "admin";
+  role: Role; // "USER" | "ADMIN"
 };
 
 declare global {
