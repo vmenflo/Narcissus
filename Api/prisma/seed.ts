@@ -2,9 +2,11 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import bcrypt from "bcryptjs";
 
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "@prisma/client";
+
 const adapter = new PrismaBetterSqlite3({
   url: process.env.DATABASE_URL || "file:./dev.db",
 });
@@ -75,7 +77,29 @@ async function main() {
     });
   }
 
+  const adminEmail = "admin@narcissus.local";
+  const adminPass = "admin1234";
+
+  const userEmail = "user@narcissus.local";
+  const userPass = "user1234";
+
+  const adminHash = await bcrypt.hash(adminPass, 10);
+  const userHash = await bcrypt.hash(userPass, 10);
+
+  await prisma.user.upsert({
+    where: { email: adminEmail },
+    update: { passwordHash: adminHash, role: "ADMIN" },
+    create: { email: adminEmail, passwordHash: adminHash, role: "ADMIN" },
+  });
+
+  await prisma.user.upsert({
+    where: { email: userEmail },
+    update: { passwordHash: userHash, role: "USER" },
+    create: { email: userEmail, passwordHash: userHash, role: "USER" },
+  });
+
   console.log("Seed completado ✅");
+  console.log("Users seed OK ✅");
 }
 
 main()

@@ -7,12 +7,14 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "react-router-dom": "^7.13.0",
     "@prisma/adapter-better-sqlite3": "^7.4.1",
     "@prisma/client": "^7.4.1",
-    "better-sqlite3": "^9.4.0"
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^9.4.0",
+    "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "prisma": "^7.4.1",
     "tsx": "^4.21.0"
   }
