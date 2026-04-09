@@ -26,3 +26,30 @@ export async function login(email: string, password: string) {
     },
   };
 }
+
+export async function register(email: string, password: string) {
+  const existingUser = await usersRepo.findByEmail(email);
+
+  if (existingUser) {
+    throw new AppError(409, "EMAIL_ALREADY_EXISTS", "Ese email ya está registrado");
+  }
+
+  const passwordHash = await bcrypt.hash(password, 10);
+
+  const user = await usersRepo.createUser({
+    email,
+    passwordHash,
+    role: "USER",
+  });
+
+  const token = signToken({ sub: String(user.id), role: user.role });
+
+  return {
+    token,
+    user: {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+    },
+  };
+}
