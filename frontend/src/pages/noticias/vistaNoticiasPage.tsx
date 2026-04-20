@@ -15,6 +15,7 @@ export default function vistaNoticias(){
 
     return(
         <div>
+            <h3>Últimas Noticias</h3>
             <VistaNoticias noticias={noticias} />
         </div>
     )

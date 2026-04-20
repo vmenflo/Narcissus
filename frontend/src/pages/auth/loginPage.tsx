@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const { login, user } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -19,51 +19,65 @@ export default function LoginPage() {
     try {
       await login(email, password);
 
-      const savedUser = JSON.parse(localStorage.getItem("user") || "null");
+      const user = JSON.parse(localStorage.getItem("user") || "null");
 
-      if (savedUser?.role === "ADMIN") {
+      if (user?.role === "ADMIN") {
         navigate("/admin");
       } else {
         navigate("/perfil");
       }
     } catch (err: any) {
-      setError(err.message || "Error al iniciar sesión");
+      setError(err.message || "No se pudo iniciar sesión");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main>
-      <h1>Iniciar sesión</h1>
+    <main className="auth-page">
+      <section className="auth-card">
+        <p className="auth-eyebrow">Bienvenido de nuevo</p>
+        <h1>Iniciar sesión</h1>
+        <p className="auth-subtitle">
+          Accede a tu cuenta para seguir explorando Nostromo.
+        </p>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-field">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="correo@ejemplo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+          <div className="auth-field">
+            <label htmlFor="password">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Introduce tu contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        {error && <p>{error}</p>}
+          {error && <p className="auth-error">{error}</p>}
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Entrando..." : "Entrar"}
-        </button>
-      </form>
+          <button className="auth-submit" type="submit" disabled={loading}>
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+        </form>
+
+        <p className="auth-switch">
+          ¿No tienes cuenta? <Link to="/register">Crear cuenta</Link>
+        </p>
+      </section>
     </main>
   );
 }
